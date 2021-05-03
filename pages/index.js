@@ -363,7 +363,7 @@ function showPokemon(shown,original){
   return (
     <React.Fragment>
       <Head>
-      <link rel="shortcut icon" href="/favicon.ico" />
+      <link rel="icon" href="/favicon.ico" />
       </Head>
 
             <AppBar className={classes.appbar} color='background' position="static">

@@ -100,7 +100,7 @@ export default function applicant_card({details}){
     
     
     {data.types.map((attr)=>(
-    <Typography variant="caption" color="textSecondary" component="p" key={attr.type.name}>{attr.type.name}</Typography>))}
+    <Typography variant="caption" color="textSecondary" component="p" key={attr.type.name}>{attr.type.name.charAt(0).toUpperCase()+attr.type.name.slice(1,attr.type.name.length)}</Typography>))}
 
 
 
@@ -131,7 +131,7 @@ export default function applicant_card({details}){
     
     <Typography gutterBottom  variant="caption" component="p">Base Stats</Typography>
     {data.stats.map((attr)=>(
-    <Typography variant="caption" component="p" color="textSecondary" key={attr.stat.name}>{attr.stat.name} : {attr.base_stat}</Typography>))}
+    <Typography variant="caption" component="p" color="textSecondary" key={attr.stat.name}>{attr.stat.name.charAt(0).toUpperCase()+attr.stat.name.slice(1,attr.stat.name.length)} : {attr.base_stat}</Typography>))}
       </CardContent> }
     </CardActionArea>
 
@@ -145,7 +145,7 @@ export default function applicant_card({details}){
     
     <Typography gutterBottom  variant="caption" component="p">Abilities</Typography>
     {data.abilities.map((attr)=>(
-    <Typography variant="caption" component="p" color="textSecondary" key={attr.ability.name}>{attr.ability.name}</Typography>))}
+    <Typography variant="caption" component="p" color="textSecondary" key={attr.ability.name}>{attr.ability.name.charAt(0).toUpperCase()+attr.ability.name.slice(1,attr.ability.name.length)}</Typography>))}
       </CardContent> }
     </CardActionArea>
 
@@ -159,24 +159,12 @@ export default function applicant_card({details}){
     
     <Typography gutterBottom  variant="caption" component="p">Weight</Typography>
 
-    <Typography variant="caption" component="p" color="textSecondary" >{data.weight} pounds</Typography>
+    <Typography variant="caption" component="p" color="textSecondary" >{data.weight/10} Kg</Typography>
      </CardContent> }
     </CardActionArea>
 
   </Card>
-  <Card className={classes.root}>
-  <CardActionArea>
 
-  {!data ? <div style={{height:400}}><CircularProgress color="black" /></div> :
-    <CardContent className={classes.cardContent}>
-    
-    <Typography gutterBottom  variant="caption" component="p">Abilities</Typography>
-    {data.abilities.map((attr)=>(
-    <Typography variant="caption" component="p" color="textSecondary" key={attr.ability.name}>{attr.ability.name}</Typography>))}
-      </CardContent> }
-    </CardActionArea>
-
-  </Card>
 
   <Card className={classes.root} style={{minHeight:'400px'}}>
   <CardActionArea>
@@ -186,7 +174,7 @@ export default function applicant_card({details}){
     
     <Typography gutterBottom  variant="caption" component="p">Game appeareances</Typography>
     {data.game_indices.map((attr)=>(
-    <Typography variant="caption" component="p" color="textSecondary" key={attr.version.name}>{attr.version.name}</Typography>))}
+    <Typography variant="caption" component="p" color="textSecondary" key={attr.version.name}>{attr.version.name.charAt(0).toUpperCase()+attr.version.name.slice(1,attr.version.name.length)}</Typography>))}
       </CardContent> }
     </CardActionArea>
 
