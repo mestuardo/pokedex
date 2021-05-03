@@ -9,10 +9,7 @@ import Box from '@material-ui/core/Box';
 import Grid from '@material-ui/core/Grid';
 import GridList from '@material-ui/core/GridList';
 import GridListTile from '@material-ui/core/GridListTile';
-import GridListTileBar from '@material-ui/core/GridListTileBar';
-import ListSubheader from '@material-ui/core/ListSubheader';
-import IconButton from '@material-ui/core/IconButton';
-import InfoIcon from '@material-ui/icons/Info';
+
 import fetch from 'node-fetch'
 
 import withWidth, { isWidthUp } from '@material-ui/core/withWidth';
@@ -28,33 +25,23 @@ import PaginationItem from '@material-ui/lab/PaginationItem';
 
 import PokeSearch from '../src/search_button/pokeSearch'
 import TypeSearch from '../src/search_button/typeSearch'
-import { CircularProgress } from '@material-ui/core';
+
 import MenuItem from '@material-ui/core/MenuItem';
-import FormHelperText from '@material-ui/core/FormHelperText';
+
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 import InputLabel from '@material-ui/core/InputLabel';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 
-import InputBase from '@material-ui/core/InputBase';
-import Badge from '@material-ui/core/Badge';
 
-import Menu from '@material-ui/core/Menu';
-import MenuIcon from '@material-ui/icons/Menu';
-import SearchIcon from '@material-ui/icons/Search';
-import AccountCircle from '@material-ui/icons/AccountCircle';
-import MailIcon from '@material-ui/icons/Mail';
-import NotificationsIcon from '@material-ui/icons/Notifications';
-import MoreIcon from '@material-ui/icons/MoreVert';
 import Hidden from '@material-ui/core/Hidden';
 import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
-import DialogContentText from '@material-ui/core/DialogContentText';
+
 import DialogTitle from '@material-ui/core/DialogTitle';
 import Button from '@material-ui/core/Button';
-import Head from 'next/head'
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -173,37 +160,14 @@ formControl: {
   minWidth: 120,
   
 },
-selectEmpty: {
-  marginTop: theme.spacing(2),
-},
+
 appbar:{
   height: theme.spacing(6),
 
 },
-searchIcon: {
-  padding: theme.spacing(0, 2),
-  // height: '100%',
 
-  pointerEvents: 'none',
 
-  alignItems: 'center',
-  justifyContent: 'center',
-},
-search: {
 
-  borderRadius: theme.shape.borderRadius,
-  backgroundColor: fade(theme.palette.common.white, 0.15),
-  '&:hover': {
-    backgroundColor: fade(theme.palette.common.white, 0.25),
-  },
-  marginRight: theme.spacing(2),
-  marginLeft: 0,
-  width: '100%',
-  [theme.breakpoints.up('sm')]: {
-    marginLeft: theme.spacing(3),
-    width: 'auto',
-  },
-},
 secondToolbar:{
   justifyContent:'center',
   placeContent:'center',
@@ -417,40 +381,6 @@ function showPokemon(shown,original){
           </Button>
  
 
-          <div className={classes.grow} />
-          <div className={classes.sectionDesktop}>
-            {/* <IconButton aria-label="show 4 new mails" color="inherit">
-              <Badge badgeContent={4} color="secondary">
-                <MailIcon />
-              </Badge>
-            </IconButton>
-            <IconButton aria-label="show 17 new notifications" color="inherit">
-              <Badge badgeContent={17} color="secondary">
-                <NotificationsIcon />
-              </Badge>
-            </IconButton>
-            <IconButton
-              edge="end"
-              aria-label="account of current user"
-              aria-controls={menuId}
-              aria-haspopup="true"
-              onClick={handleProfileMenuOpen}
-              color="inherit"
-            >
-              <AccountCircle />
-            </IconButton> */}
-          </div>
-          {/* <div className={classes.sectionMobile}>
-            <IconButton
-              aria-label="show more"
-              aria-controls={mobileMenuId}
-              aria-haspopup="true"
-              onClick={handleMobileMenuOpen}
-              color="inherit"
-            >
-              <MoreIcon />
-            </IconButton>
-          </div> */}
                 <Hidden lgUp>
                   <Tabs value={value} onChange={handleChange} aria-label="simple tabs example">
           <Tab label="Full PokéDex" {...a11yProps(0)} />
@@ -595,8 +525,7 @@ function showPokemon(shown,original){
                 />
           <Hidden lgUp>
           <Dialog
-        // fullWidth={fullWidth}
-        // maxWidth={maxWidth}
+ 
         open={open}
         onClose={handleClose}
         aria-labelledby="pokemon-details"
@@ -737,16 +666,7 @@ export default withWidth()(MarketPlace)
 // export async function getStaticProps() {
 //   const res = await fetch('https://pokeapi.co/api/v2/pokemon?offset=0&limit=100')
 //   const data = await res.json()
-//   // Sacamos las temporadas  
-//   // var groupBy = function(xs, key) {
-//   //     return xs.reduce(function(rv, x) {
-//   //       (rv[x[key]] = rv[x[key]] || []).push(x);
-//   //       return rv;
-//   //     }, {});
-//   //   };
 
-//   // var temporadas = groupBy(data,'season')
-//   // var cant_temporadas= Object.keys(temporadas)
 
 //   return {
 //     props: {
@@ -763,7 +683,7 @@ export const getServerSideProps = async ({ query }) => {
   const page = query.page || 1
   const type = query.bytype 
   let data = null
-  let data_poketypes = null
+
   // Fetch data from external API
   try {
     if (type){
@@ -783,7 +703,7 @@ export const getServerSideProps = async ({ query }) => {
     
 
     data = await res.json()
-    // data_poketypes= await res_types.json()
+
 
 
 
