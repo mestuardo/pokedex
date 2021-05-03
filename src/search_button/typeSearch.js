@@ -29,11 +29,11 @@ const useStyles = makeStyles({
 export default function Layout({eraseShownPoke}) {
   const router = useRouter()
 
-  function handleClick(nombre) {
+  function handleClick(option) {
     // Se bloquea el boton para evitar que el usuario 
     // manipule el input cuando está cargando la página
-  
-    router.replace('/?bytype='+nombre)
+    setValue(option)
+    router.replace('/?bytype='+option.name)
     eraseShownPoke()
     setDisabled(true)
     
@@ -45,6 +45,7 @@ export default function Layout({eraseShownPoke}) {
   const [options, setOptions] = React.useState([]);
   const [disabled,setDisabled] = React.useState(false)
   const loading = open && options.length === 0;
+  const [value,setValue] = React.useState({name:'normal',url:'https://pokeapi.co/api/v2/type/1/'})
 
   React.useEffect(() => {
     let active = true;
@@ -94,13 +95,13 @@ export default function Layout({eraseShownPoke}) {
       onClose={() => {
         setOpen(false);
       }}
-      defaultValue={{name:'normal',url:'https://pokeapi.co/api/v2/type/1/'}}
+      value={value}
       
       getOptionSelected={(option, value) => option.name === value.name}
       getOptionLabel={(option) => option.name}
 
       // onInputChange={(e,value)=>setBusqueda(value)}
-      onChange={(e,op) => {op ? handleClick(op.name): null}}
+      onChange={(e,op) => {op ? handleClick(op): null}}
       options={options}
       loading={loading}
       renderInput={(params) => (
