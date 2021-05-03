@@ -54,7 +54,7 @@ import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import Button from '@material-ui/core/Button';
-
+import Head from 'next/head'
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -398,7 +398,8 @@ function showPokemon(shown,original){
   return (
     <React.Fragment>
 
-            <AppBar className={classes.appbar} position="static">
+
+            <AppBar className={classes.appbar} color='background' position="static">
         <Toolbar>
 
           {/* <IconButton

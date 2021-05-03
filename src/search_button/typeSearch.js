@@ -80,18 +80,22 @@ export default function Layout({eraseShownPoke}) {
         
   <Autocomplete
       id="types"
+ 
       style={{ width: 200,margin:0,padding:0,height:30 }}
       // disabled={disabled}
       open={open}
       noOptionsText={'This type does not exist'}
       loadingText={'Searching pokemon types...'}
       closeText={'Cerrar'}
+      
       onOpen={() => {
         setOpen(true);
       }}
       onClose={() => {
         setOpen(false);
       }}
+      defaultValue={{name:'normal',url:'https://pokeapi.co/api/v2/type/1/'}}
+      
       getOptionSelected={(option, value) => option.name === value.name}
       getOptionLabel={(option) => option.name}
 
@@ -102,13 +106,14 @@ export default function Layout({eraseShownPoke}) {
       renderInput={(params) => (
         <TextField
           {...params}
+          
           label="Search by type"
           placeholder='Search type'
           InputProps={{
             ...params.InputProps,
             endAdornment: (
               <React.Fragment>
-                {loading ? <CircularProgress color="inherit" size={20} /> : null}
+                {loading ? <CircularProgress color="secondary" size={20} /> : null}
                 {params.InputProps.endAdornment}
               </React.Fragment>
             ),
